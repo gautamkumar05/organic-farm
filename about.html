@@ -1,0 +1,113 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css"> 
+<style>
+body{
+background-image:url(back.jpg);
+background-size:100% 100%;
+}
+#slide{
+position:absolute;
+left:0%;
+top:20%;
+height:80%;
+width:100%;
+}
+#aa1{
+position:absolute;
+left:0%;
+top:0%;
+height:100%;
+width:100%;
+clip-path:polygon(0% 0%, 50% 0%, 0% 100%, 0% 0%);
+}
+#a2{
+position:absolute;
+left:0%;
+top:0%;
+height:100%;
+width:100%;
+background-color:rgba(122,22,142,0.5);
+clip-path:polygon(50% 0%, 0% 100%, 100% 100%, 50% 0%);
+}
+#a3{
+position:absolute;
+overflow:hidden;
+left:0%;
+top:0%;
+height:100%;
+width:100%;
+clip-path:polygon(50% 0%, 100% 100%, 100% 0%, 50% 0%);
+}
+#i11{
+position:absolute;
+top:15%;
+left:0%;
+width:250px;
+height:300px;
+border-radius:50%;
+}
+#s11{
+position:absolute;
+top:30%;
+left:30%;
+font-size:2vw;
+color:red;
+font-family:chiller;
+font-size:adjust:;
+}
+#i111{
+position:absolute;
+top:15%;
+right:0%;
+width:250px;
+height:300px;
+border-radius:50%;
+}
+</style>
+</head>
+<body onload="slide(), slide22()">
+<div>
+<img src="logo.png" width="100px" height="100px" id="logo">
+</div>
+<br>
+<div id="menu">
+<a href="index.html"> Home </a>
+<a href="bill.html">|| Bill</a>
+<a href="about.html">|| About </a>
+<a href="contact.html">|| Contact </a>
+</div>
+<div id="slide">
+<div id="aa1"><img src=" " width="80%" height="100%" id="i11"> </div>
+<div id="a2"><span id="s11"></span> </div>
+<div id="a3"><img src=" " width="80%" height="100%"  id="i111"></div>
+</div>
+</body>
+<script>
+var x, y, z=0;
+x=new Array('tomato.jpg','potato.jpg','onion.jpg','sp.jpg','brakali.jpg');
+y=new Array('The tomato is the edible berry of the plant Solanum lycopersicum. Tomatoes are low in calories and provide important nutrients like vitamin C and potassium.','The potato is one of some 150 tuber-bearing species of the genus Solanum. The potato belongs to the nightshade family of plants which also includes eggplant tomatoes and garden peppers.', 'An onion also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.', 'Spinach is an extremely nutrient-rich vegetable. Spinach is high in insoluble fiber which may boost your health in several ways.','Broccoli is high in many nutrients, including fiber, vitamin C, vitamin K, iron, and potassium.  It also boasts more protein than most other vegetables.');
+function slide()
+{
+if(z<4)
+	   {  z++; }     
+	else	
+	   { z=0; }
+document.getElementById("i11").src=x[z];
+document.getElementById("s11").innerHTML=y[z];
+setTimeout('slide()', 3000);
+}
+
+var m=0;
+function slide22()
+{
+if(m<4)
+	   {  m++; }     
+	else	
+	   { m=0; }
+document.getElementById("i111").src=x[m];
+
+setTimeout('slide22()',3000);
+}
+</script>
+</html>

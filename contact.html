@@ -1,0 +1,120 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css"> 
+<link rel="stylesheet" href="contact.css"> 
+</head>
+<div>
+<img src="logo.png" width="100px" height="100px" id="logo">
+</div>
+<br>
+<div id="menu">
+<a href="index.html"> Home </a>
+<a href="bill.html">|| Bill</a>
+<a href="about.html">|| About </a>
+<a href="contact.html">|| Contact </a>
+</div>
+
+<br><br><br><br><br><br><br><br>
+<table id="table">
+<tr>
+<th>NAME:-</th><th><input type="text" id="n" onblur="ncheck()"><span id="ns" style="color:red"></span> </th>
+</tr>
+<tr>
+<th>EMAIL:-</th><th> <input type="text" id="e" onblur="echeck()" ><span id="es" style="color:red"></span></th>
+</tr>
+<tr>
+<th>PHONE NO:-</th><th><input type="text" id="pp" onblur="pcheck()" maxlength="10"><span id="ps" style="color:red"></span></th> 
+</tr>
+<tr>
+<th>message:-</th><th><textarea id="mmm"  onblur="mcheck()" maxlength="60"></textarea><br><span id="ms" style="color:red"></th></span>
+</tr>
+<tr>
+<th colspan="2"><br> <button onclick="show()"> SUBMIT ... </button></th>
+</tr>
+</table>
+<textarea rows="15" cols="50" id="t" readonly> </textarea> 
+<div style="width: 700px;position: relative;"><iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Bhagat%20Bhawan%2C%20Mackey%20Rd%2C%20Deputy%20Para%2C%20Ahirtoli%2C%20Ranchi%2C%20Jharkhand%20834001%2C%20India+(vegetable%20market)&amp;ie=UTF8&amp;t=k&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="http://www.googlemapsgenerator.com/ja/">Googlemapsgenerator.com/ja/</a> & <a href="https://harpangratis.se/spindelharpan/">gratis spel spindelharpan</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><br />
+</body>
+<script>
+function ncheck(){
+var nc, nv;
+nc=document.getElementById("n").value;
+nc=nc.trim();
+nv=/^[a-zA-Z ]+$/;
+if(!nc.match(nv)|| nc.length==0)
+{
+document.getElementById("ns").innerHTML="**check your name**";
+return 'no';
+}
+else{
+document.getElementById("ns").innerHTML=" ";
+return 'yes';
+}
+}
+
+function echeck(){
+var ec, ev;
+ec=document.getElementById("e").value;
+ev=/^[0-9a-zA-Z._-]+\@[a-zA-Z0-9]+\.[a-zA-Z.]{2,6}$/;
+if(!ec.match(ev))
+{
+document.getElementById("es").innerHTML="**check your email**";
+return 'no';
+}
+else{
+document.getElementById("es").innerHTML=" ";
+return 'yes';
+}
+}
+
+function pcheck(){
+var pc,pv;
+pc=document.getElementById("pp").value;
+pv=/^[0-9]{10,10}$/;
+if(!pc.match(pv)||pc.charAt(0)<6){
+document.getElementById("ps").innerHTML="**Check number**";
+return 'no';
+}
+else{
+document.getElementById("ps").innerHTML=" ";
+return 'yes';
+}
+}
+
+function mcheck(){
+var mc, mv;
+mc=document.getElementById("mmm").value;
+mv=/^[a-zA-Z ]+$/;
+if(!mc.match(mv))
+{
+document.getElementById("ms").innerHTML="****message please****";
+return 'no';
+}
+else{
+document.getElementById("ms").innerHTML=" ";
+return 'yes';
+}
+}
+
+function show(){
+ if(ncheck()=='yes' && echeck()=='yes' && pcheck()=='yes' && mcheck()=='yes')
+ {
+ var n,e,p, mm;
+n=document.getElementById("n").value;
+e=document.getElementById("e").value;
+p=document.getElementById("pp").value;
+mm=document.getElementById("mmm").value;
+document.getElementById("t").value=" Dear "+n;
+document.getElementById("t").value+="\n your Email Id :- "+e+"\n Phone No :-"+p+ "\n your message:-"+mm;
+ }
+ else{
+alert("check details");
+ncheck();
+echeck();
+pcheck();
+mcheck();
+}
+}
+
+</script>
+</html>

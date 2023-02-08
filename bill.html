@@ -1,0 +1,283 @@
+
+<html>
+<script>
+
+function ncheck(){
+var nc, nv;
+nc=document.getElementById("n").value;
+nc=nc.trim();
+nv=/^[a-zA-Z ]+$/;
+if(!nc.match(nv)|| nc.length==0)
+{
+document.getElementById("ns").innerHTML="****please check your name****";
+return 'no';
+}
+else{
+document.getElementById("ns").innerHTML=" ";
+return 'yes';
+}
+}
+
+function echeck(){
+var ec, ev;
+ec=document.getElementById("e").value;
+ev=/^[0-9a-zA-Z._-]+\@[a-zA-Z0-9]+\.[a-zA-Z.]{2,6}$/;
+if(!ec.match(ev))
+{
+document.getElementById("es").innerHTML="****please check your email****";
+return 'no';
+}
+else{
+document.getElementById("es").innerHTML=" ";
+return 'yes';
+}
+}
+
+function pcheck(){
+var pc,pv;
+pc=document.getElementById("pp").value;
+pv=/^[0-9]{10,10}$/;
+if(!pc.match(pv)||pc.charAt(0)<6){
+document.getElementById("ps").innerHTML="*****Check number*****";
+return 'no';
+}
+else{
+document.getElementById("ps").innerHTML=" ";
+return 'yes';
+}
+}
+
+
+
+
+function show1(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="tomato";
+ document.getElementById("r").value=b;
+ }
+ function show2(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="potato";
+ document.getElementById("r").value=b;
+ }
+ function show3(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="onion";
+ document.getElementById("r").value=b;
+ }
+function show4(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="spinach";
+ document.getElementById("r").value=b;
+ }
+ function show5(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="Braccoli";
+ document.getElementById("r").value=b;
+ }
+ 
+ 
+ function cartbill(){
+ var p,q,r,m;
+p=document.getElementById("p").value;
+r=document.getElementById("r").value;
+q=document.getElementById("q").value;
+m=document.getElementById("i").src;
+
+		if(p!='s' && q!='0'){
+					var p1,p2,p3;
+					p1=document.getElementById("p1").value;
+					p2=document.getElementById("p2").value;
+					p3=document.getElementById("p3").value;
+					if(p1==0){
+					document.getElementById("p1").value=p;
+					document.getElementById("r1").value=r;
+					document.getElementById("q1").value=q;			
+					document.getElementById("ii1").src=m;
+					}	
+					else if(p2==0){
+					document.getElementById("p2").value=p;
+					document.getElementById("r2").value=r;
+					document.getElementById("q2").value=q;
+					document.getElementById("i2").src=m;
+					}	
+					else if(p3==0){
+					document.getElementById("p3").value=p;
+					document.getElementById("r3").value=r;
+					document.getElementById("q3").value=q;
+					document.getElementById("i3").src=m;
+					}
+					else{
+					alert("cart is full");
+					}
+		}
+		else{
+		 alert("please select product and quantity");
+		}
+ }
+ 
+ function clear1(){
+					document.getElementById("p1").value=0;
+					document.getElementById("r1").value=0;
+					document.getElementById("q1").value=0;
+					document.getElementById("i1").src='';
+ }
+ 
+ function clear2(){
+					document.getElementById("p2").value=0;
+					document.getElementById("r2").value=0;
+					document.getElementById("q2").value=0;
+					document.getElementById("i2").src='';
+ }
+ 
+ function clear3(){
+					document.getElementById("p3").value=0;
+					document.getElementById("r3").value=0;
+					document.getElementById("q3").value=0;
+					document.getElementById("i3").src='';
+ }
+ 
+ function bill(){
+ 
+ if(ncheck()=='yes' && echeck()=='yes' && pcheck()=='yes'){
+ 
+var p1,r1,q1,a1=0;
+p1=document.getElementById("p1").value;
+r1=document.getElementById("r1").value;
+q1=document.getElementById("q1").value;
+	if(p1!='s' && q1!='0'){
+	a1=r1*q1;
+	}
+var p2,r2,q2,a2=0;
+p2=document.getElementById("p2").value;
+r2=document.getElementById("r2").value;
+q2=document.getElementById("q2").value;
+	if(p2!='s' && q2!='0'){
+	a2=r2*q2;
+	}
+var p3,r3,q3,a3=0;
+p3=document.getElementById("p3").value;
+r3=document.getElementById("r3").value;
+q3=document.getElementById("q3").value;
+	if(p3!='s' && q3!='0'){
+	a3=r3*q3;
+	}
+var a=0;
+a=a1+a2+a3;
+if(a>0){
+var n,e,p;
+n=document.getElementById("n").value;
+e=document.getElementById("e").value;
+p=document.getElementById("pp").value;
+document.getElementById("t").value="Dear "+n;
+document.getElementById("t").value+="\nyour details send on given Email Id :- "+e+", Phone No :-"+p;
+if(a1>0){
+document.getElementById("t").value+="\n\n your purches items "+p1+",Quantity :- "+q1+", Rate Rs :- "+r1+".00/-";	
+}
+if(a2>0){
+document.getElementById("t").value+="\n your purches items "+p2+",Quantity :- "+q2+", Rate Rs :- "+r2+".00/-";	
+}
+if(a3>0){
+document.getElementById("t").value+="\nyour purches items "+p3+",Quantity :- "+q3+", Rate Rs :- "+r3+".00/-";	
+}
+document.getElementById("t").value+="\n\n your Pay Bill   "+a;	
+document.getElementById("t").value+="\n\n\n **********visit again*********";	
+}
+else{
+alert("please select product and quantity");
+}
+}
+
+else{
+alert("check details");
+ncheck();
+echeck();
+pcheck();
+}
+}
+
+</script>
+<style>
+body{background-image:url(back.jpg);}
+.bi{
+position:absolute;
+width:60px;
+height:80px;
+top:
+}
+#bi1{left:15%;}
+#bi2{left:30%;}
+#bi3{left:45%;}
+#bi4{left:60%;}
+#bi5{left:75%;}
+.border{border-radius:50%;}
+
+</style>
+<body>
+</script>
+<body onload="slide()">
+<img src="logo.png" width="100px" height="100px" id="logo">
+</div>
+<br>
+<div id="menu">
+<a href="index.html"> Home </a>
+<a href="bill.html">|| Bill</a>
+<a href="about.html">|| About </a>
+<a href="contact.html">|| Contact </a>
+</div>
+<br> <br><br><br><br><center>
+<div class="bi" id="bi1"><img src="tomato.jpg" class="border" onclick="show1(this.src,'15')" width="100%" height="100%"></div>
+<div class="bi"id="bi2"><img src="potato.jpg" class="border"  onclick="show2(this.src,'20')" width="100%" height="100%"></div>
+<div class="bi"id="bi3"><img src="onion.jpg" class="border"   onclick="show3(this.src,'25')" width="100%" height="100%"></div>
+<div class="bi"id="bi4"><img src="sp.jpg" class="border"  onclick="show4(this.src,'30')" width="100%" height="100%"></div>
+<div class="bi"id="bi5"><img src="brakali.jpg" class="border" onclick="show5(this.src,'35')" width="100%" height="100%"></div>
+<br><br><br><br><br><br>
+<font color="#e8c00e" size="5px" >product </font> <input type="text" id="p" readonly>
+<font color="#e8c00e" size="5px">Rate</font> <input type="text" id="r" readonly>
+<font color="#e8c00e" size="5px">Quantity</font> <select id="q"><br><br>
+         <option value="0">......select.....</option>
+         <option value="1"> 1 kg </option>
+         <option value="2"> 2 kg </option>
+         <option value="3"> 3 kg </option>
+</select>
+<font color="#e8c00e" size="5px">Image</font><img src="" id="i" width="100px" height="100px"> 
+<button onclick="cartbill()">add to cart</button>
+<br><br><br><br>
+<div>
+  <input type="text" id="p1" value="0" readonly>
+  <input type="text" id="r1" value="0" readonly>
+  <input type="text" id="q1" value="0" readonly>
+  <img src=" " id="ii1" width="80px" height="80px">
+ <button onclick="clear1()"> clear </button>
+</div><br>
+<div>
+<input type="text" id="p2" value="0" readonly>
+<input type="text" id="r2" value="0" readonly>
+<input type="text" id="q2" value="0" readonly>
+<img src=" " id="i2" width="80px" height="80px"> 
+<button onclick="clear2()"> clear </button>
+</div><br>
+<div>
+<input type="text" id="p3" value="0" readonly></th>
+ <input type="text" id="r3" value="0" readonly></th>
+ <input type="text" id="q3" value="0" readonly></th>
+<img src=" " id="i3" width="80px" height="80px"> </th>
+<button onclick="clear3()"> clear </button>
+</div>
+</div>
+<br><br>
+<font color="#e8c00e" size="5px">NAME:- </font><input type="text" id="n" onblur="ncheck()"><span id="ns" style="color:red"> </span> 
+<font color="#e8c00e" size="5px">EMAIL:-</font><input type="text" id="e" onblur="echeck()" ><span id="es" style="color:red"> </span>
+<font color="#e8c00e"size="5px" >PHONE NO:-</font><input type="text" id="pp" onblur="pcheck()" maxlength="10"><span id="ps" style="color:red"> </span> <br><br>
+<br> <button onclick=" bill()"> bill ... </button> <br><br>
+<textarea rows="15" cols="50" id="t"> </textarea> </center>
+</body>
+<head>
+<link rel="stylesheet" href="style.css"> 
+</head>
+</html>

@@ -1,0 +1,574 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css"> 
+</head>
+<script>
+var a, b, d=0;
+a=new Array('tomato.jpg','potato.jpg','onion.jpg','sp.jpg','brakali.jpg');
+b=new Array('The tomato is the edible berry of the plant Solanum lycopersicum. Tomatoes are low in calories and provide important nutrients like vitamin C and potassium.','The potato is one of some 150 tuber-bearing species of the genus Solanum. The potato belongs to the nightshade family of plants which also includes eggplant tomatoes and garden peppers.', 'An onion also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.', 'Spinach is an extremely nutrient-rich vegetable. Spinach is high in insoluble fiber which may boost your health in several ways.','Broccoli is high in many nutrients, including fiber, vitamin C, vitamin K, iron, and potassium.  It also boasts more protein than most other vegetables.');
+
+function slide1()
+{
+if(d<4)
+	   {  d++; }     
+	else	
+	   { d=0; }                       
+document.getElementById("i1").src=a[d];
+document.getElementById("s").innerHTML=b[d];
+setTimeout('slide1()', 2000);
+}
+
+function ncheck(){
+var nc, nv;
+nc=document.getElementById("n").value;
+nc=nc.trim();
+nv=/^[a-zA-Z ]+$/;
+if(!nc.match(nv)|| nc.length==0)
+{
+document.getElementById("ns").innerHTML="****please check your name****";
+return 'no';
+}
+else{
+document.getElementById("ns").innerHTML=" ";
+return 'yes';
+}
+}
+
+function echeck(){
+var ec, ev;
+ec=document.getElementById("e").value;
+ev=/^[0-9a-zA-Z._-]+\@[a-zA-Z0-9]+\.[a-zA-Z.]{2,6}$/;
+if(!ec.match(ev))
+{
+document.getElementById("es").innerHTML="****please check your email****";
+return 'no';
+}
+else{
+document.getElementById("es").innerHTML=" ";
+return 'yes';
+}
+}
+
+function pcheck(){
+var pc,pv;
+pc=document.getElementById("pp").value;
+pv=/^[0-9]{10,10}$/;
+if(!pc.match(pv)||pc.charAt(0)<6){
+document.getElementById("ps").innerHTML="*****Check number*****";
+return 'no';
+}
+else{
+document.getElementById("ps").innerHTML=" ";
+return 'yes';
+}
+}
+
+
+
+
+function show1(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="tomato";
+ document.getElementById("r").value=b;
+ }
+ function show2(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="potato";
+ document.getElementById("r").value=b;
+ }
+ function show3(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="onion";
+ document.getElementById("r").value=b;
+ }
+function show4(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="spinach";
+ document.getElementById("r").value=b;
+ }
+ function show5(a,b){
+var a,b,c;
+ document.getElementById("i").src=a;
+ document.getElementById("p").value="Braccoli";
+ document.getElementById("r").value=b;
+ }
+ 
+ 
+ function cartbill(){
+ var p,q,r,m;
+p=document.getElementById("p").value;
+r=document.getElementById("r").value;
+q=document.getElementById("q").value;
+m=document.getElementById("i").src;
+
+		if(p!='s' && q!='0'){
+					var p1,p2,p3;
+					p1=document.getElementById("p1").value;
+					p2=document.getElementById("p2").value;
+					p3=document.getElementById("p3").value;
+					if(p1==0){
+					document.getElementById("p1").value=p;
+					document.getElementById("r1").value=r;
+					document.getElementById("q1").value=q;			
+					document.getElementById("ii1").src=m;
+					}	
+					else if(p2==0){
+					document.getElementById("p2").value=p;
+					document.getElementById("r2").value=r;
+					document.getElementById("q2").value=q;
+					document.getElementById("i2").src=m;
+					}	
+					else if(p3==0){
+					document.getElementById("p3").value=p;
+					document.getElementById("r3").value=r;
+					document.getElementById("q3").value=q;
+					document.getElementById("i3").src=m;
+					}
+					else{
+					alert("cart is full");
+					}
+		}
+		else{
+		 alert("please select product and quantity");
+		}
+ }
+ 
+ function clear1(){
+					document.getElementById("p1").value=0;
+					document.getElementById("r1").value=0;
+					document.getElementById("q1").value=0;
+					document.getElementById("i1").src='';
+ }
+ 
+ function clear2(){
+					document.getElementById("p2").value=0;
+					document.getElementById("r2").value=0;
+					document.getElementById("q2").value=0;
+					document.getElementById("i2").src='';
+ }
+ 
+ function clear3(){
+					document.getElementById("p3").value=0;
+					document.getElementById("r3").value=0;
+					document.getElementById("q3").value=0;
+					document.getElementById("i3").src='';
+ }
+ 
+ function bill(){
+ 
+ if(ncheck()=='yes' && echeck()=='yes' && pcheck()=='yes'){
+ 
+var p1,r1,q1,a1=0;
+p1=document.getElementById("p1").value;
+r1=document.getElementById("r1").value;
+q1=document.getElementById("q1").value;
+	if(p1!='s' && q1!='0'){
+	a1=r1*q1;
+	}
+var p2,r2,q2,a2=0;
+p2=document.getElementById("p2").value;
+r2=document.getElementById("r2").value;
+q2=document.getElementById("q2").value;
+	if(p2!='s' && q2!='0'){
+	a2=r2*q2;
+	}
+var p3,r3,q3,a3=0;
+p3=document.getElementById("p3").value;
+r3=document.getElementById("r3").value;
+q3=document.getElementById("q3").value;
+	if(p3!='s' && q3!='0'){
+	a3=r3*q3;
+	}
+var a=0;
+a=a1+a2+a3;
+if(a>0){
+var n,e,p;
+n=document.getElementById("n").value;
+e=document.getElementById("e").value;
+p=document.getElementById("pp").value;
+document.getElementById("t").value="Dear "+n;
+document.getElementById("t").value+="\nyour details send on given Email Id :- "+e+", Phone No :-"+p;
+if(a1>0){
+document.getElementById("t").value+="\n\n your purches items "+p1+",Quantity :- "+q1+", Rate Rs :- "+r1+".00/-";	
+}
+if(a2>0){
+document.getElementById("t").value+="\n your purches items "+p2+",Quantity :- "+q2+", Rate Rs :- "+r2+".00/-";	
+}
+if(a3>0){
+document.getElementById("t").value+="\nyour purches items "+p3+",Quantity :- "+q3+", Rate Rs :- "+r3+".00/-";	
+}
+document.getElementById("t").value+="\n\n your Pay Bill   "+a;	
+document.getElementById("t").value+="\n\n\n **********visit again*********";	
+}
+else{
+alert("please select product and quantity");
+}
+}
+
+else{
+alert("check details");
+ncheck();
+echeck();
+pcheck();
+}
+}
+
+var x, y, z=0;
+x=new Array('tomato.jpg','potato.jpg','onion.jpg','sp.jpg','brakali.jpg');
+y=new Array('The tomato is the edible berry of the plant Solanum lycopersicum. Tomatoes are low in calories and provide important nutrients like vitamin C and potassium.','The potato is one of some 150 tuber-bearing species of the genus Solanum. The potato belongs to the nightshade family of plants which also includes eggplant tomatoes and garden peppers.', 'An onion also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.', 'Spinach is an extremely nutrient-rich vegetable. Spinach is high in insoluble fiber which may boost your health in several ways.','Broccoli is high in many nutrients, including fiber, vitamin C, vitamin K, iron, and potassium.  It also boasts more protein than most other vegetables.');
+function slide()
+{
+if(z<4)
+	   {  z++; }     
+	else	
+	   { z=0; }
+document.getElementById("i11").src=x[z];
+document.getElementById("s11").innerHTML=y[z];
+setTimeout('slide()', 2000);
+}
+
+var m=0;
+function slide22()
+{
+if(m<4)
+	   {  m++; }     
+	else	
+	   { m=0; }
+document.getElementById("i111").src=x[m];
+
+setTimeout('slide22()',2000);
+}
+</script>
+<style>
+#home{
+position:fixed;
+left:0%;
+top:0%;
+width:100%;
+height:100%;
+z-index:-20;
+}
+#bill{
+position:absolute;
+left:0%;
+top:90%;
+width:100%;
+height:100%;
+}
+#about{
+position:absolute;
+left:0%;
+top:250%;
+width:100%;
+height:100%;
+}
+#contact{
+position:absolute;
+left:0%;
+top:360%;
+width:100%;
+}
+
+.bi{
+position:absolute;
+width:60px;
+height:80px;
+top:
+}
+#bi1{left:15%;}
+#bi2{left:30%;}
+#bi3{left:45%;}
+#bi4{left:60%;}
+#bi5{left:75%;}
+.border{border-radius:50%;}
+
+
+#slide{
+position:absolute;
+left:0%;
+top:20%;
+height:80%;
+width:100%;
+}
+#aa1{
+position:absolute;
+left:0%;
+top:0%;
+height:100%;
+width:100%;
+clip-path:polygon(0% 0%, 50% 0%, 0% 100%, 0% 0%);
+overflow:hidden;
+}
+#a2{
+position:absolute;
+left:0%;
+top:0%;
+height:100%;
+width:100%;
+clip-path:polygon(50% 0%, 0% 100%, 100% 100%, 50% 0%);
+background-color:rgba(123,22,122,0.5);
+color:white;
+}
+#a3{
+position:absolute;
+left:0%;
+top:0%;
+height:100%;
+width:100%;
+clip-path:polygon(50% 0%, 100% 100%, 100% 0%, 50% 0%);
+overflow:hidden;
+}
+#i11{
+position:absolute;
+top:0%;
+right:0%;
+width:100%;
+height:100%;
+
+}
+#s11{
+position:absolute;
+top:30%;
+left:35%;
+width:400px;
+height:300px;
+font-family:chiller;
+font-size:40px;
+}
+#i111{
+position:absolute;
+top:0%;
+right:0%;
+width:100%;
+height:100%;
+
+}
+</style>
+<body onload="slide1(),slide(),slide22()">
+
+<div id="menu">
+<a href="#index"> <img src="ihome.png"width="50px" height="50px"> </a><br>
+<a href="#bill">  <img src="ibill.png"width="50px" height="50px"></a><br>
+<a href="#about">  <img src="iabout.png"width="50px" height="50px"> </a><br>
+<a href="#contact">  <img src="icontact.png"width="50px" height="50px"> </a>
+</div>
+<div id="index">
+<img src="back.jpg" width="100%" height="100%" id="home">
+
+<div>
+<img src="logo.png" width="100px" height="100px" id="logo">
+</div>
+<br>
+
+
+<div id="a1"><img src="mix.jpg" width="100%" height="100%" id="i1"></div>
+<div><span id="s"></span></div>
+</div>
+
+<div id="bill">
+<center>
+<div class="bi" id="bi1"><img src="tomato.jpg" class="border" onclick="show1(this.src,'15')" width="100%" height="100%"></div>
+<div class="bi"id="bi2"><img src="potato.jpg" class="border"  onclick="show2(this.src,'20')" width="100%" height="100%"></div>
+<div class="bi"id="bi3"><img src="onion.jpg" class="border"   onclick="show3(this.src,'25')" width="100%" height="100%"></div>
+<div class="bi"id="bi4"><img src="sp.jpg" class="border"  onclick="show4(this.src,'30')" width="100%" height="100%"></div>
+<div class="bi"id="bi5"><img src="brakali.jpg" class="border" onclick="show5(this.src,'35')" width="100%" height="100%"></div>
+<br><br><br><br><br><br>
+<font color="#e8c00e" size="5px" >product </font> <input type="text" id="p" readonly>
+<font color="#e8c00e" size="5px">Rate</font> <input type="text" id="r" readonly>
+<font color="#e8c00e" size="5px">Quantity</font> <select id="q"><br><br>
+         <option value="0">......select.....</option>
+         <option value="1"> 1 kg </option>
+         <option value="2"> 2 kg </option>
+         <option value="3"> 3 kg </option>
+</select>
+<font color="#e8c00e" size="5px">Image</font><img src="" id="i" width="100px" height="100px">  
+<button onclick="cartbill()">add to cart</button>
+<br><br><br><br>
+<div>
+  <input type="text" id="p1" value="0" readonly>
+  <input type="text" id="r1" value="0" readonly>
+  <input type="text" id="q1" value="0" readonly>
+  <img src=" " id="ii1" width="80px" height="80px">
+ <button onclick="clear1()"> clear </button>
+</div><br>
+<div>
+<input type="text" id="p2" value="0" readonly>
+<input type="text" id="r2" value="0" readonly>
+<input type="text" id="q2" value="0" readonly>
+<img src=" " id="i2" width="80px" height="80px"> 
+<button onclick="clear2()"> clear </button>
+</div><br>
+<div>
+<input type="text" id="p3" value="0" readonly></th>
+ <input type="text" id="r3" value="0" readonly></th>
+ <input type="text" id="q3" value="0" readonly></th>
+<img src=" " id="i3" width="80px" height="80px"> </th>
+<button onclick="clear3()"> clear </button>
+</div>
+
+<font color="#e8c00e" size="5px">NAME:- </font><input type="text" id="n" onblur="ncheck()"><span id="ns" style="color:red"> </span> 
+<font color="#e8c00e" size="5px">EMAIL:-</font><input type="text" id="e" onblur="echeck()" ><span id="es" style="color:red"> </span>
+<font color="#e8c00e"size="5px" >PHONE NO:-</font><input type="text" id="pp" onblur="pcheck()" maxlength="10"><span id="ps" style="color:red"> </span> <br><br>
+<br> <button onclick="bill()"> bill ... </button> <br><br>
+<textarea rows="10" cols="50" id="t" readonly> </textarea>
+ </center>
+</div>
+<div id="about">
+<div id="slide">
+<div id="aa1"><img src=" " width="100%" height="100%" id="i11"> </div>
+<div id="a2"><span id="s11"></span> </div>
+<div id="a3"><img src=" " width="100%" height="100%"  id="i111"></div>
+</div>
+</div>
+
+<div id="contact">
+<style>
+#table{
+background-color:rgba(184, 255, 243,0.3);
+position:absolute;
+width:40%;
+height:80%;
+color:white;
+font-size:1.5vw;
+}
+input[type="text"]{
+background-color:rgba(156, 156, 5,0.3);
+color:white;
+font-family:arial;
+text-shadow:1px 1px 2px yellow;
+font-size:1.5vw;
+border:none;
+outline:none;
+border-bottom:1px solid white;
+}
+textarea{
+background-color:rgba(156, 156, 5,0.3);
+color:white;
+font-family:arial;
+text-shadow:1px 1px 2px yellow;
+font-size:1.5vw;
+border-bottom:1px solid white;
+}
+
+</style>
+<table  border="3" width="550px" height="400px" id="table" style="position:absolute;left:5%;top:10%;width:40%;height:100%;color:white;">
+<tr>
+<th>NAME:-</th><th><input type="text" id="n1" onblur="ncheck1()"><span id="ns1" style="color:red"></span> </th>
+</tr>
+<tr>
+<th>EMAIL:-</th><th> <input type="text" id="e1" onblur="echeck1()" ><span id="es1" style="color:red"></span></th>
+</tr>
+<tr>
+<th>PHONE NO:-</th><th><input type="text" id="pp1" onblur="pcheck1()" maxlength="10"><span id="ps1" style="color:red"></span></th> 
+</tr>
+<tr>
+<th>message:-</th><th><input type="text" id="mmm" onblur="mcheck()" maxlength="60"><br><span id="ms" style="color:red"></th></span>
+</tr>
+<tr>
+<th colspan="2"><br> <button onclick="show()"> SUBMIT ... </button></th>
+</tr>
+<tr>
+<th colspan="2">
+<textarea rows="5" cols="50" id="t1" readonly> </textarea> 
+</th>
+</tr>
+</table>
+
+<div style="position:absolute;right:5%;top:10%;width:40%;height:90%;">
+<div style="width:300px;position: relative;"><iframe width="600" height="300" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=Bhagat%20Bhawan%2C%20Mackey%20Rd%2C%20Deputy%20Para%2C%20Ahirtoli%2C%20Ranchi%2C%20Jharkhand%20834001%2C%20India+(vegetable%20market)&amp;ie=UTF8&amp;t=k&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width:50%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
+</div>
+</div>
+</div>
+
+</div>
+</body>
+<script>
+function ncheck1(){
+var nc, nv;
+nc=document.getElementById("n1").value;
+nc=nc.trim();
+nv=/^[a-zA-Z ]+$/;
+if(!nc.match(nv)|| nc.length==0)
+{
+document.getElementById("ns1").innerHTML="**check your name**";
+return 'no';
+}
+else{
+document.getElementById("ns1").innerHTML=" ";
+return 'yes';
+}
+}
+
+function echeck1(){
+var ec, ev;
+ec=document.getElementById("e1").value;
+ev=/^[0-9a-zA-Z._-]+\@[a-zA-Z0-9]+\.[a-zA-Z.]{2,6}$/;
+if(!ec.match(ev))
+{
+document.getElementById("es1").innerHTML="**check your email**";
+return 'no';
+}
+else{
+document.getElementById("es1").innerHTML=" ";
+return 'yes';
+}
+}
+
+function pcheck1(){
+var pc,pv;
+pc=document.getElementById("pp1").value;
+pv=/^[0-9]{10,10}$/;
+if(!pc.match(pv)||pc.charAt(0)<6){
+document.getElementById("ps1").innerHTML="**Check number**";
+return 'no';
+}
+else{
+document.getElementById("ps1").innerHTML=" ";
+return 'yes';
+}
+}
+
+function mcheck(){
+var mc, mv;
+mc=document.getElementById("mmm").value;
+mv=/^[a-zA-Z ]+$/;
+if(!mc.match(mv))
+{
+document.getElementById("ms").innerHTML="****message please****";
+return 'no';
+}
+else{
+document.getElementById("ms").innerHTML=" ";
+return 'yes';
+}
+}
+
+function show(){
+ if(ncheck1()=='yes' && echeck1()=='yes' && pcheck1()=='yes' && mcheck()=='yes')
+ {
+ var n,e,p, mm;
+n=document.getElementById("n1").value;
+e=document.getElementById("e1").value;
+p=document.getElementById("pp1").value;
+mm=document.getElementById("mmm").value;
+document.getElementById("t1").value=" Dear "+n;
+document.getElementById("t1").value+="\n your Email Id :- "+e+"\n Phone No :-"+p+ "\n your message:-"+mm;
+ }
+ else{
+alert("check details");
+ncheck1();
+echeck1();
+pcheck1();
+mcheck();
+}
+}
+</script>
+</div>
+
+
+</body>
+</html>
